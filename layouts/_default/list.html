@@ -2,7 +2,11 @@
   <h1>{{ .Title }}</h1>
   {{ .Content }}
   {{ range .Pages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
+    <a class="paginate" href="{{ .RelPermalink }}">
+      <div>
+        <h2>{{ .LinkTitle }}</h2>
+        <p>{{ .Summary }}</p>
+      </div>
+    </a>
   {{ end }}
 {{ end }}
