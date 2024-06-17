@@ -1,10 +1,10 @@
-$border_radius: 2pt;
+@import 'constants';
 
 body {
   background: fixed linear-gradient(#ffffff, #f0ffff);
   color: #222;
   font-family: sans-serif;
-  margin: 1rem;
+  margin: auto;
   max-width: 768px;
   cursor: default;
 }
@@ -33,11 +33,11 @@ $paginator_anim: all .25s ease;
 }
 
 .paginate:hover div {
+  @include rounded-borders;
   transition: $paginator_anim;
   margin-left: 3pt;
   padding: 0pt 2pt 0pt 2pt;
   background-color: #ddd;
-  border-radius: $border_radius;
   cursor: pointer;
 }
 
@@ -75,16 +75,16 @@ $menus_item_hover:
 }
 
 .menus ul h2 {
+  @include rounded-borders;
   color: #222;
   font-size: 12pt;
   padding: 2pt;
   background: transparent;
   transition: $menus_item_hover;
-  border-radius: $border_radius;
 }
 
 .menus ul h2:hover {
+  @include rounded-borders;
   background: #8cf;
   transition: $menus_item_hover;
-  border-radius: $border_radius;
 }
