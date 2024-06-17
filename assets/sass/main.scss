@@ -1,3 +1,5 @@
+$border_radius: 2pt;
+
 body {
   background: fixed linear-gradient(#ffffff, #f0ffff);
   color: #222;
@@ -35,7 +37,7 @@ $paginator_anim: all .25s ease;
   margin-left: 3pt;
   padding: 0pt 2pt 0pt 2pt;
   background-color: #ddd;
-  border-radius: 2pt;
+  border-radius: $border_radius;
   cursor: pointer;
 }
 
@@ -78,11 +80,11 @@ $menus_item_hover:
   padding: 2pt;
   background: transparent;
   transition: $menus_item_hover;
-  border-radius: 10px;
+  border-radius: $border_radius;
 }
 
 .menus ul h2:hover {
   background: #8cf;
   transition: $menus_item_hover;
-  border-radius: 10px;
+  border-radius: $border_radius;
 }
