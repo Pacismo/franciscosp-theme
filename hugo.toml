@@ -1,7 +1,6 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'FranciscoSP Theme'
-author = 'Francisco Santana'
 
 [[menus.main]]
 name = 'Home'
@@ -19,6 +18,6 @@ pageRef = '/tags'
 weight = 30
 
 [module]
-  [module.hugoVersion]
-    extended = false
-    min = "0.116.0"
+[module.hugoVersion]
+extended = false
+min = "0.116.0"
