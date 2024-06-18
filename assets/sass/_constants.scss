@@ -1,3 +1,23 @@
+// $site_width: 768px;
+$site_width: 60%;
+$text_color: #222;
+
+$margin: 4px;
+
+@mixin rounded-borders-transition {
+    transition: all .25s ease;
+}
+
 @mixin rounded-borders {
+    @include rounded-borders-transition;
     border-radius: 2pt;
+    padding: 1pt 4pt 1pt 4pt;
+    margin: $margin;
+    background-color: #eee;
+}
+
+@mixin rounded-borders-sel {
+    @include rounded-borders-transition;
+    @include rounded-borders;
+    background: #8cf;
 }

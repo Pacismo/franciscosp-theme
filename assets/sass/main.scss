@@ -1,22 +1,41 @@
 @import 'constants';
 
 body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   background: fixed linear-gradient(#ffffff, #f0ffff);
-  color: #222;
+  color: $text_color;
   font-family: sans-serif;
-  margin: auto;
-  max-width: 768px;
+  margin: 4px auto 4px auto;
+  max-width: $site_width;
   cursor: default;
 }
 
 header {
-  border-bottom: 1px solid #222;
+  position: fixed;
+  top: 0;
+  width: $site_width;
   margin-bottom: 1rem;
+  background-color: #ffffff;
+}
+
+main {
+  padding-top: 5rem;
+  flex: 1;
 }
 
 footer {
-  border-top: 1px solid #222;
   margin-top: 1rem;
+  width: 100%;
+  background-color: #f0ffff;
+}
+
+.footercontent {
+  @include rounded-borders;
+  border-top: 1px solid $text_color;
+  margin: 0px 0px 4px 0px;
 }
 
 a {
@@ -24,67 +43,8 @@ a {
   color: #00e;
 }
 
-$paginator_anim: all .25s ease;
+@import "paginate";
 
-.paginate div {
-  transition: $paginator_anim;
-  color: #222;
-  text-decoration: none;
-}
+@import "menus";
 
-.paginate:hover div {
-  @include rounded-borders;
-  transition: $paginator_anim;
-  margin-left: 3pt;
-  padding: 0pt 2pt 0pt 2pt;
-  background-color: #ddd;
-  cursor: pointer;
-}
-
-.paginate h2 {
-  color: #00e;
-  text-decoration: none;
-  transition: $paginator_anim;
-}
-
-.paginate:hover h2 {
-  color: #28e;
-  transition: $paginator_anim;
-}
-
-$menus_item_hover:
-  all .25s ease;
-
-.menus {
-  padding: 0;
-  margin: 0;
-  min-width: 768px;
-  height: fit-content;
-}
-
-.menus ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menus ul li {
-  display: inline-block;
-  width: max-content;
-  text-align: center;
-}
-
-.menus ul h2 {
-  @include rounded-borders;
-  color: #222;
-  font-size: 12pt;
-  padding: 2pt;
-  background: transparent;
-  transition: $menus_item_hover;
-}
-
-.menus ul h2:hover {
-  @include rounded-borders;
-  background: #8cf;
-  transition: $menus_item_hover;
-}
+@import "terms";

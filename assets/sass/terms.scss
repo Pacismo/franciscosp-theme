@@ -1,0 +1,32 @@
+@import "constants";
+
+.tags {
+    margin: 2rem 0px 0px 0px;
+    padding: 2px 4px 2px 4px;
+}
+
+.tags h2 {
+    margin: 4px;
+    color: $text_color + #666;
+}
+
+.tags ul {
+    list-style-type: none;
+    margin: 4px;
+    padding: 4px;
+    display: inline-block;
+}
+
+.tags ul li {
+    @include rounded-borders;
+    display: inline-block;
+}
+
+.tags ul li:hover {
+    @include rounded-borders-sel;
+}
+
+.tags ul a {
+    color: $text_color;
+    display: inline-block;
+}

@@ -1,0 +1,48 @@
+@import "constants";
+
+.menus {
+    @include rounded-borders;
+    padding: 0;
+    margin: 4px 0px 0px 0px;
+    min-width: 100%;
+    display: inline-block;
+    border-bottom: 1px solid $text_color;
+}
+
+.menus h1 {
+    @include rounded-borders;
+    margin-left: 4pt;
+    margin-top: 6pt;
+    margin-bottom: 0;
+    color: $text_color;
+}
+
+.menus h1:hover {
+    @include rounded-borders-sel;
+    margin-left: 4pt;
+    margin-top: 6pt;
+    margin-bottom: 0pt;
+}
+
+.menus ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menus ul li {
+    display: inline-block;
+    width: max-content;
+    text-align: center;
+}
+
+.menus ul h2 {
+    @include rounded-borders;
+    color: $text_color;
+    font-size: 12pt;
+    background: transparent;
+}
+
+.menus ul h2:hover {
+    @include rounded-borders-sel;
+}

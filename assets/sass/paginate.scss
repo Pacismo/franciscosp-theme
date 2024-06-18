@@ -1,0 +1,35 @@
+@import "constants";
+
+.paginate {
+    margin: $margin auto $margin auto;
+    display: block;
+    width: 90%;
+}
+
+.paginate div {
+    @include rounded-borders;
+    margin: $margin auto $margin auto;
+    color: $text_color;
+    text-decoration: none;
+}
+
+.paginate:hover div {
+    @include rounded-borders-sel;
+    margin: $margin auto $margin auto;
+    cursor: pointer;
+}
+
+.paginate * {
+    margin-top: 6pt;
+    margin-bottom: 6pt;
+}
+
+.paginate h2 {
+    color: #00e;
+    text-decoration: none;
+    margin-bottom: 0;
+}
+
+.paginate h3 {
+    margin-top: 0;
+}
