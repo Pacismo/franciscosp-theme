@@ -1,11 +1,16 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-  <a class="paginate" href="{{ .RelPermalink }}">
-    <div>
-      <h2>{{ .LinkTitle }}</h2>
-      <p>{{ .Summary }}</p>
-    </div>
-  </a>
-  {{ end }}
+{{ .Content }}
+<h2>New Content</h2>
+{{ range site.RegularPages }}
+{{ $path := strings.Split (strings.Trim (.RelPermalink) "/" ) "/" }}
+{{ if compare.Gt (len $path) 1 }}
+<a class="paginate" href="{{ .RelPermalink }}">
+  <div>
+    <h2>{{ .LinkTitle }}</h2>
+    <h3>{{ strings.Title (index (strings.Split (.RelPermalink) "/" ) 1) }}</h3>
+    <p>{{ .Summary }}</p>
+  </div>
+</a>
+{{ end }}
+{{ end }}
 {{ end }}
