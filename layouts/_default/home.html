@@ -1,9 +1,14 @@
 {{ define "main" }}
 {{ .Content }}
-<h2>New Content</h2>
+<h1>Recent Pages</h1>
+{{ $count := or site.Params.Home.PageCount 5 }}
 {{ range site.RegularPages }}
+{{ if eq $count 0 }}
+{{ break }}
+{{ else }}
 {{ $path := strings.Split (strings.Trim (.RelPermalink) "/" ) "/" }}
 {{ if compare.Gt (len $path) 1 }}
+{{ $count = sub $count 1 }}
 <a class="paginate" href="{{ .RelPermalink }}">
   <div>
     <h2>{{ .LinkTitle }}</h2>
@@ -11,6 +16,7 @@
     <p>{{ .Summary }}</p>
   </div>
 </a>
+{{ end }}
 {{ end }}
 {{ end }}
 {{ end }}
