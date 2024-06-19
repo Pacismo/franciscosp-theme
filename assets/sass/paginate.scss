@@ -1,21 +1,21 @@
-@import "constants";
+@use "constants" as *;
 
 .paginate {
-    margin: $margin auto $margin auto;
+    margin: $site-margin auto $site-margin auto;
     display: block;
     width: 90%;
 }
 
 .paginate div {
     @include rounded-borders;
-    margin: $margin auto $margin auto;
-    color: $text_color;
+    margin: $site-margin auto $site-margin auto;
+    color: $text-color;
     text-decoration: none;
 }
 
 .paginate:hover div {
     @include rounded-borders-sel;
-    margin: $margin auto $margin auto;
+    margin: $site-margin auto $site-margin auto;
     cursor: pointer;
 }
 

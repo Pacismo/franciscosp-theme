@@ -1,4 +1,4 @@
-@import 'constants';
+@use 'constants' as *;
 
 body {
   height: 100vh;
@@ -6,24 +6,26 @@ body {
   flex-direction: column;
 
   background: fixed linear-gradient(#ffffff, #f0ffff);
-  color: $text_color;
+  color: $text-color;
   font-family: sans-serif;
-  margin: 4px auto 4px auto;
-  max-width: $site_width;
+  margin: 0 auto 0 auto;
+  min-width: $site-width-min;
+  max-width: $site-width-max;
   cursor: default;
 }
 
 header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  width: $site_width;
-  margin-bottom: 1rem;
+  width: 100%;
+  margin-bottom: 0;
   background-color: #ffffff;
 }
 
 main {
-  padding-top: 5rem;
   flex: 1;
+  width: 97.5%;
+  margin: 0 auto 0 auto;
 }
 
 footer {
@@ -34,7 +36,7 @@ footer {
 
 .footercontent {
   @include rounded-borders;
-  border-top: 1px solid $text_color;
+  border-top: 1px solid $text-color;
   margin: 0px 0px 4px 0px;
 }
 

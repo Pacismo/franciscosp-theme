@@ -1,8 +1,8 @@
-// $site_width: 768px;
-$site_width: 60%;
-$text_color: #222;
+$site-width-max: 24cm;
+$site-width-min: 10cm;
+$text-color: #222;
 
-$margin: 4px;
+$site-margin: 4px;
 
 @mixin rounded-borders-transition {
     transition: all .25s ease;
@@ -12,7 +12,7 @@ $margin: 4px;
     @include rounded-borders-transition;
     border-radius: 2pt;
     padding: 1pt 4pt 1pt 4pt;
-    margin: $margin;
+    margin: $site-margin;
     background-color: #eee;
 }
 

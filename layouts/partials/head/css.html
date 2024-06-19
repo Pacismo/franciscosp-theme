@@ -1,4 +1,5 @@
-{{- with resources.Get "sass/main.scss" | resources.ToCSS | resources.Fingerprint }}
+{{- $opts := dict "transpiler" "dartsass" }}
+{{- with resources.Get "sass/main.scss" | resources.ToCSS $opts | resources.Fingerprint }}
 {{- if eq hugo.Environment "development" }}
 <link rel="stylesheet" href="{{ .RelPermalink }}">
 {{- else }}
