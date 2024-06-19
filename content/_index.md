@@ -4,6 +4,6 @@ date = 2023-01-01T08:00:00-07:00
 draft = false
 +++
 
-Laborum voluptate pariatur ex culpa magna nostrud est incididunt fugiat
-pariatur do dolor ipsum enim. Consequat tempor do dolor eu. Non id id anim anim
-excepteur excepteur pariatur nostrud qui irure ullamco.
+This is a sample homepage, meant to be a placeholder in the case the site lacks an index page at its root.
+
+Below is a list of recently-created pages, excluding those that were placed at the root of the hierarchy.
