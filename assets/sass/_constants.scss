@@ -2,7 +2,7 @@ $site-width-max: 24cm;
 $site-width-min: 10cm;
 $text-color: #222;
 
-$site-margin: 4px;
+$site-margin: 1vh;
 
 @mixin rounded-borders-transition {
     transition: all .25s ease;
@@ -12,7 +12,7 @@ $site-margin: 4px;
     @include rounded-borders-transition;
     border-radius: 2pt;
     padding: 1pt 4pt 1pt 4pt;
-    margin: $site-margin;
+    margin: 4px;
     background-color: #eee;
 }
 

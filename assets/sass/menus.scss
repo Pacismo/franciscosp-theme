@@ -4,7 +4,7 @@
 .menus {
     @include rounded-borders;
     padding: 0;
-    margin: 4px 0px 0px 0px;
+    margin: 0px;
     min-width: 100%;
     display: inline-block;
     border-bottom: 1px solid $text_color;

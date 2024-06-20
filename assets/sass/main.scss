@@ -5,14 +5,14 @@ html {
 }
 
 body {
-  height: 100vh;
+  height: calc(100vh - $site-margin * 2);
   display: flex;
   flex-direction: column;
 
   background: #ffffff;
   color: $text-color;
   font-family: sans-serif;
-  margin: 0 auto 0 auto;
+  margin: $site-margin auto $site-margin auto;
   min-width: $site-width-min;
   max-width: $site-width-max;
   cursor: default;
@@ -22,7 +22,6 @@ header {
   position: sticky;
   top: 0;
   width: 100%;
-  margin-bottom: 0;
   background-color: #ffffff;
 }
 
@@ -40,7 +39,7 @@ footer {
 .footercontent {
   @include rounded-borders;
   border-top: 1px solid $text-color;
-  margin: 0px 0px 4px 0px;
+  margin: 0px;
 }
 
 a {
