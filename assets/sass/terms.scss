@@ -28,6 +28,6 @@
 }
 
 .tags ul a {
-    color: $text-color;
-    display: inline-block;
+    font-weight: bold;
+    color: color.adjust($text-color, $lightness: 20%);
 }

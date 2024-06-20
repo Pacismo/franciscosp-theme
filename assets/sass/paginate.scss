@@ -1,4 +1,5 @@
 @use "constants" as *;
+@use "sass:color";
 
 .paginate {
     margin: $site-margin auto $site-margin auto;
@@ -31,5 +32,34 @@
 }
 
 .paginate h3 {
-    margin-top: 0;
+    margin: 0;
+    font-size: medium;
+}
+
+.paginate ul {
+    list-style-type: none;
+    margin: 0px 0px 0px 4px;
+    padding: 0px;
+}
+
+.paginate li {
+    display: inline-block;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+.paginate-tags {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+
+.paginate-tags li {
+    @include rounded-borders;
+    background-color: #00000018;
+    display: inline-block;
+    margin: 4px 0px 4px 0px;
+    padding: 0px 4px 0px 4px;
+    color: color.scale($text-color, $lightness: 20%);
+    font-weight: bold;
 }

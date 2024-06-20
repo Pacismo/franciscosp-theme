@@ -1,11 +1,15 @@
 @use 'constants' as *;
 
+html {
+  background: #fafafa;
+}
+
 body {
   height: 100vh;
   display: flex;
   flex-direction: column;
 
-  background: fixed linear-gradient(#ffffff, #f0ffff);
+  background: #ffffff;
   color: $text-color;
   font-family: sans-serif;
   margin: 0 auto 0 auto;
@@ -29,7 +33,6 @@ main {
 }
 
 footer {
-  margin-top: 1rem;
   width: 100%;
   background-color: #f0ffff;
 }
