@@ -3,7 +3,14 @@
 
 {{ .Content }}
 
+{{ $resume := dict }}
+{{ with resources.Get "resume.toml" }}
+{{ with . | transform.Unmarshal }}
+{{ $resume = .}}
+{{ end }}
+{{ end }}
+{{ if $resume }}
 <h1>Resume</h1>
-
-{{ partial "about/resume.html" }}
+{{ partial "about/resume.html" $resume }}
+{{ end }}
 {{ end }}
