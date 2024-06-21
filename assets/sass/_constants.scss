@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $site-width-max: 24cm;
 $site-width-min: 10cm;
 
@@ -5,6 +7,10 @@ $text-color: #222;
 $link-color: #00e;
 
 $site-margin: 1vh;
+
+$bordered-background: #eee;
+$bordered-selection: #8cf;
+$bordered-activated: color.scale($bordered-selection, $lightness: 50%);
 
 @mixin rounded-borders-transition {
     transition: all .25s ease;
@@ -15,11 +21,17 @@ $site-margin: 1vh;
     border-radius: 2pt;
     padding: 1pt 4pt 1pt 4pt;
     margin: 4px;
-    background-color: #eee;
+    background-color: $bordered-background;
 }
 
 @mixin rounded-borders-sel {
     @include rounded-borders-transition;
     @include rounded-borders;
-    background: #8cf;
+    background: $bordered-selection;
+}
+
+@mixin rounded-borders-click {
+    @include rounded-borders-transition;
+    @include rounded-borders;
+    background: $bordered-activated;// #cef;
 }

@@ -23,6 +23,12 @@
     margin-bottom: 0pt;
 }
 
+.menus h1:active {
+    @include rounded-borders-click;
+    margin-top: 6pt;
+    margin-bottom: 0pt;
+}
+
 .menus h2 {
     @include rounded-borders;
     font-size: 10pt;
@@ -52,4 +58,8 @@
 
 .menus ul h2:hover {
     @include rounded-borders-sel;
+}
+
+.menus ul h2:active {
+    @include rounded-borders-click;
 }

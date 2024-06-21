@@ -28,6 +28,10 @@ a :where(div.resume-entry) {
     @include rounded-borders-sel;
 }
 
+:where(a) .resume-entry:active {
+    @include rounded-borders-click;
+}
+
 .resume-entry img {
     display: inline;
     height: 80%;

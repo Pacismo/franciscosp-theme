@@ -15,6 +15,10 @@
     @include rounded-borders-sel;
 }
 
+.paginate:active div {
+    @include rounded-borders-click;
+}
+
 .paginate * {
     margin-top: 6pt;
     margin-bottom: 6pt;
