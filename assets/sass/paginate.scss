@@ -2,22 +2,17 @@
 @use "sass:color";
 
 .paginate {
-    margin: $site-margin auto $site-margin auto;
     display: block;
-    width: 90%;
 }
 
 .paginate div {
     @include rounded-borders;
-    margin: $site-margin auto $site-margin auto;
     color: $text-color;
     text-decoration: none;
 }
 
 .paginate:hover div {
     @include rounded-borders-sel;
-    margin: $site-margin auto $site-margin auto;
-    cursor: pointer;
 }
 
 .paginate * {
@@ -26,7 +21,7 @@
 }
 
 .paginate h2 {
-    color: #00e;
+    color: $link-color;
     text-decoration: none;
     margin-bottom: 0;
 }

@@ -1,0 +1,54 @@
+@use "constants" as *;
+@use "sass:color";
+
+.resume {
+    @include rounded-borders;
+    padding: 4pt;
+    display: block;
+}
+
+.resume h2 {
+    margin: 4pt;
+}
+
+.resume-entry {
+    @include rounded-borders;
+    display: flex;
+    align-items: center;
+    background: #ddd;
+    height: 50pt;
+}
+
+a :where(div.resume-entry) {
+    transition: all .5s ease;
+    color: $text-color;
+}
+
+:where(a) .resume-entry:hover {
+    @include rounded-borders-sel;
+}
+
+.resume-entry img {
+    display: inline;
+    height: 80%;
+    margin: 4pt;
+    padding: 0px;
+}
+
+.resume-entry div {
+    display: inline-block;
+    flex: 1;
+    margin: 0px 0px 0px 4pt;
+}
+
+.resume-entry h3 {
+    margin: 0;
+}
+
+.resume-entry h4 {
+    margin: 0;
+}
+
+.resume-entry p {
+    margin: 0;
+}

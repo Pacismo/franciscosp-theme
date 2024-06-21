@@ -1,0 +1,42 @@
+{{ $data := dict }}
+{{ with resources.Get "resume.toml" }}
+{{ with . | transform.Unmarshal }}
+{{ $data = .}}
+{{ end }}
+{{ end }}
+
+<div class="resume">
+    {{ range $table, $entries := $data}}
+    <h2>{{ strings.Title $table }}</h2>
+
+    {{ range $entries }}
+    {{ if eq $table "education" }}
+    {{ if .url }}
+    <a href="{{ .url }}">
+        {{ end }}
+    <div class="resume-entry">
+        {{ if .image }}
+        {{ $image := resources.Get .image }}
+        <img src="{{ $image.RelPermalink }}" />
+        {{ end }}
+        <div>
+            <h3>{{ .institution }}</h3>
+            <h4>{{ .area }}: {{ .studyType }}</h4>
+            <p>{{ (time.AsTime .startDate).Format "January 01, 2006" }} - {{ (time.AsTime .endDate).Format "January 01, 2006" }}</p>
+        </div>
+    </div>
+    {{ if .url }}
+    </a>
+    {{ end }}
+    {{ else if eq $table "projects" }}
+    <div class="resume-entry">
+        This is an entry for projects
+    </div>
+    {{ else }}
+    <div>
+        Nothing
+    </div>
+    {{ end }}
+    {{ end }}
+    {{ end }}
+</div>
