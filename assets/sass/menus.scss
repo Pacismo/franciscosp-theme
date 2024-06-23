@@ -51,22 +51,29 @@
     display: inline-block;
     width: max-content;
     text-align: center;
+    margin-left: 4px;
 }
 
 .menus ul h2 {
     @include rounded-borders;
     @include rounded-borders-transition;
+    margin-left: 0;
+    margin-right: 0;
     color: $text_color;
     font-size: 12pt;
     background: transparent;
 }
 
-.menus ul h2:hover {
+.menus ul a:hover h2 {
     @include rounded-borders-sel;
     @include rounded-borders-transition;
+    margin-left: 0;
+    margin-right: 0;
 }
 
-.menus ul h2:active {
+.menus ul a:active h2 {
     @include rounded-borders-click;
     @include rounded-borders-transition;
+    margin-left: 0;
+    margin-right: 0;
 }
