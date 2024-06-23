@@ -10,7 +10,7 @@
 {{ if compare.Gt (len $path) 1 }}
 {{ $count = sub $count 1 }}
 <a class="paginate" href="{{ .RelPermalink }}">
-  <div>
+  <div class="listbox">
     <h2>{{ .LinkTitle }}</h2>
     <ul>
       <li>

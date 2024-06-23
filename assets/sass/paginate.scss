@@ -3,31 +3,20 @@
 
 .paginate {
     display: block;
-}
-
-.paginate div {
-    @include rounded-borders;
     color: $text-color;
     text-decoration: none;
 }
 
-.paginate:hover div {
-    @include rounded-borders-sel;
-}
-
-.paginate:active div {
-    @include rounded-borders-click;
-}
-
-.paginate * {
-    margin-top: 6pt;
-    margin-bottom: 6pt;
+.paginate .listbox {
+    padding-left: 6pt;
+    padding-right: 6pt;
 }
 
 .paginate h2 {
     color: $text-color;
     text-decoration: none;
     margin-bottom: 0;
+    margin-top: 4pt;
 }
 
 .paginate h3 {
@@ -37,14 +26,19 @@
 
 .paginate ul {
     list-style-type: none;
-    margin: 0px 0px 0px 4px;
+    margin: 0pt;
     padding: 0px;
+}
+
+.paginate p {
+    margin-top: 0pt;
+    margin-bottom: 4pt;
 }
 
 .paginate li {
     display: inline-block;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .paginate-tags {

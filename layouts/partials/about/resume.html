@@ -1,10 +1,10 @@
 {{ $data := . }}
 
+{{ range $table, $entries := $data}}
 <div class="resume">
-    {{ range $table, $entries := $data}}
     <h2>{{ strings.Title $table }}</h2>
     {{ range $entries }}
-    {{ partial (add "about/" $table ".html") . }}
-    {{ end }}
+    {{ partial (add "about/sections/" $table ".html") . }}
     {{ end }}
 </div>
+{{ end }}

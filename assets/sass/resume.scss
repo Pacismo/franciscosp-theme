@@ -19,20 +19,30 @@
     height: 50pt;
 }
 
-a :where(div.resume-entry) {
+.resume a {
     transition: all .5s ease;
     color: $text-color;
 }
 
-:where(a) .resume-entry:hover {
+:where(a) .resume-entry {
+    @include rounded-borders-transition;
+}
+
+:where(a:hover) .resume-entry {
     @include rounded-borders-sel;
+    @include rounded-borders-transition;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
-:where(a) .resume-entry:active {
+:where(a:active) .resume-entry {
     @include rounded-borders-click;
+    @include rounded-borders-transition;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
-.resume-entry img {
+.resume-entry img.logo {
     display: inline;
     height: 80%;
     margin: 4pt;
@@ -40,19 +50,11 @@ a :where(div.resume-entry) {
 }
 
 .resume-entry div {
-    display: inline-block;
-    flex: 1;
+    display: block;
+    flex: auto;
     margin: 0px 0px 0px 4pt;
 }
 
-.resume-entry h3 {
-    margin: 0;
-}
-
-.resume-entry h4 {
-    margin: 0;
-}
-
-.resume-entry p {
+.resume-entry h3, .resume-entry h4, .resume-entry p {
     margin: 0;
 }

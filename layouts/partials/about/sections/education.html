@@ -1,0 +1,29 @@
+{{ $dateFormat := "January 01, 2006" }}
+{{ if .url }}
+<a href="{{ .url }}">
+    {{ end }}
+    <div class="resume-entry">
+        {{ if .image }}
+        {{ with resources.Get .image }}
+        <img src="{{ .RelPermalink }}" class="logo" />
+        {{ end }}
+        {{ end }}
+        <div>
+            <h3>{{ .institution }}</h3>
+            <h4>{{ .area }}: {{ .studyType }}</h4>
+            {{ if .startDate }}
+            {{ if .endDate }}
+            <p>{{ (time.AsTime .startDate).Format $dateFormat }} - {{ (time.AsTime .endDate).Format $dateFormat }}</p>
+            {{ else }}
+            <p>{{ (time.asTime .startDate).Format $dateFormat }} - Now</p>
+            {{ end }}
+            {{ else }}
+            {{ if .endDate }}
+            <p>{{ (time.AsTime .endDate).Format $dateFormat }}</p>
+            {{ end }}
+            {{ end }}
+        </div>
+    </div>
+    {{ if .url }}
+</a>
+{{ end }}

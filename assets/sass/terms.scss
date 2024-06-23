@@ -2,7 +2,7 @@
 @use "constants" as *;
 
 .tags {
-    margin: 2rem 0px 0px 0px;
+    margin: 2rem 0px 1rem 0px;
     padding: 2px 4px 2px 4px;
 }
 
@@ -20,14 +20,29 @@
 
 .tags ul li {
     @include rounded-borders;
+    @include rounded-borders-transition;
     display: inline-block;
 }
 
-.tags ul li:hover {
+.tags ul :where(a) li {
+    margin: 0;
+}
+
+.tags ul :where(a) li:hover {
     @include rounded-borders-sel;
+    @include rounded-borders-transition;
+    margin: 0;
+}
+
+.tags ul :where(a) li:active {
+    @include rounded-borders-click;
+    @include rounded-borders-transition;
+    margin: 0;
 }
 
 .tags ul a {
     font-weight: bold;
     color: color.adjust($text-color, $lightness: 20%);
+    padding: 0;
+    margin: 0pt;
 }

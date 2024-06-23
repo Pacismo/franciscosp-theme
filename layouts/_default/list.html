@@ -3,7 +3,7 @@
 {{ .Content }}
 {{ range .Pages }}
 <a class="paginate" href="{{ .RelPermalink }}">
-  <div>
+  <div class="listbox">
     <h2>{{ .LinkTitle }}</h2>
     <ul class="paginate-tags">
       {{ range .GetTerms "tags" | first 5 }}

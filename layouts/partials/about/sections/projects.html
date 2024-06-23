@@ -1,0 +1,20 @@
+{{ $dateFormat := "January 01, 2006" }}
+{{ if .url }}
+<a href="{{ .url }}">
+    {{ end }}
+    <div class="resume-entry">
+        <div>
+            <h3>{{ .name }}</h3>
+            {{ if .startDate }}
+            <h4>{{ (time.AsTime .startDate).Format $dateFormat }}</h4>
+            {{ end }}
+            {{ if .description }}
+            <p>{{ .description }}</p>
+            {{ end }}
+        </div>
+        {{ if .image }}
+        {{ end }}
+    </div>
+    {{ if .url }}
+</a>
+{{ end }}
