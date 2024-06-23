@@ -1,7 +1,17 @@
 @use 'constants' as *;
+@use 'sass:color';
 
 html {
     background: #fafafa;
+}
+
+h1:has(+ time) {
+    margin-bottom: 0px;
+}
+
+h1 + time {
+    font-weight: bold;
+    color: color.scale($text-color, $lightness: 40%);
 }
 
 body {
