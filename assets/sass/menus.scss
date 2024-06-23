@@ -3,6 +3,7 @@
 
 .menus {
     @include rounded-borders;
+    border-radius: $border-radius $border-radius 0 0;
     padding: 0;
     margin: 0px;
     min-width: 100%;
