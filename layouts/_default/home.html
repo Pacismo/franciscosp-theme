@@ -1,10 +1,14 @@
 {{ define "main" }}
 {{ .Content }}
 
+{{/*  Get the number of pages to show in the home page -- default is 5  */}}
 {{ $count := or site.Params.Home.PageCount 5 }}
+{{/*  Gets the first $count pages, where the page's section is in the `Home.Paginate` list  */}}
 {{ $paginate := where site.RegularPages "Page.Section" "in" site.Params.Home.Paginate | first $count }}
+{{/*  Grab the first post  */}}
 {{ $first := index $paginate 0 }}
 
+{{/*  With the first page in the list, generate a spotlight  */}}
 {{ with $first }}
 {{ $spotlightDateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
 {{ $spotlightDateHuman := .Date | time.Format ":date_long" }}
@@ -23,6 +27,7 @@
 </div>
 {{ end }}
 
+{{/*  List all the remaining pages in shortboxes  */}}
 {{ range complement (slice $first) $paginate }}
 {{/*  {{ range $paginate }}  */}}
 {{ $section := .Section }}
