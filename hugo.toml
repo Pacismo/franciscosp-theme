@@ -2,9 +2,6 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'FranciscoSP Theme'
 
-[params]
-home.pageCount = 5
-
 [[menus.main]]
 name = 'Home'
 pageRef = '/'
