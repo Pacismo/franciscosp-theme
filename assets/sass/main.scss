@@ -24,12 +24,6 @@ div.spotlight p.spotlight-section {
     color: color.scale($text-color, $lightness: 40%);
 }
 
-div.spotlight div:has(a.read-more) {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: 0;
-}
-
 div.spotlight a.read-more {
     font-weight: bold;
 }
