@@ -9,7 +9,17 @@ h1:has(+ time) {
     margin-bottom: 0px;
 }
 
-h1 + time {
+h1+time {
+    font-weight: bold;
+    color: color.scale($text-color, $lightness: 40%);
+}
+
+div.spotlight {
+    margin-bottom: 2vh;
+}
+
+div.spotlight p.spotlight-section {
+    display: inline;
     font-weight: bold;
     color: color.scale($text-color, $lightness: 40%);
 }
@@ -57,8 +67,13 @@ footer {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none solid 0pt;
     color: #00e;
+}
+
+a[href^=http]::after,
+a[href^=https]::after {
+    content: "↗"
 }
 
 .listbox {

@@ -2,9 +2,12 @@
 <h1>{{ .Title }}</h1>
 {{ .Content }}
 {{ range .Pages }}
+{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+{{ $dateHuman := .Date | time.Format ":date_long" }}
 <a class="paginate" href="{{ .RelPermalink }}">
   <div class="listbox">
     <h2>{{ .LinkTitle }}</h2>
+    <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
     <ul class="paginate-tags">
       {{ range .GetTerms "tags" | first 5 }}
       <li>

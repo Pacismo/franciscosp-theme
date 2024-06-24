@@ -1,26 +1,36 @@
 {{ define "main" }}
 {{ .Content }}
-<h1>Recent Pages</h1>
+
 {{ $count := or site.Params.Home.PageCount 5 }}
-{{ range site.RegularPages }}
-{{ if eq $count 0 }}
-{{ break }}
-{{ else }}
-{{ $path := strings.Split (strings.Trim (.RelPermalink) "/" ) "/" }}
-{{ if compare.Gt (len $path) 1 }}
-{{ $count = sub $count 1 }}
+{{ $paginate := where site.RegularPages "Page.Section" "in" site.Params.Home.Paginate | first $count }}
+{{ $first := index $paginate 0 }}
+{{ $spotlightDateMachine := $first.Date | time.Format "2006-01-02T15:04:05-07:00" }}
+{{ $spotlightDateHuman := $first.Date | time.Format ":date_long" }}
+<div class="spotlight">
+  <h1>Recent: {{ $first.Title }}</h1>
+  <time datetime="{{ $spotlightDateMachine }}">{{ $spotlightDateHuman }}</time><p class="spotlight-section"> &mdash; {{ $first.Section | title }}</p>
+  {{ $first.Content | truncate 2000 "..." }}
+  {{ if gt (len $first.Content) 2000 }}
+  <a href="{{ $first.RelPermalink }}"><div class="listbox">Read more</div></a>
+  {{ end }}
+</div>
+
+{{ range complement (slice $first) $paginate }}
+{{ $section := .Section }}
+{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+{{ $dateHuman := .Date | time.Format ":date_long" }}
 <a class="paginate" href="{{ .RelPermalink }}">
   <div class="listbox">
     <h2>{{ .LinkTitle }}</h2>
     <ul>
       <li>
-        <h3>{{ strings.Title (index (strings.Split (.RelPermalink) "/" ) 1) }}</h3>
+        <h3>{{ strings.Title $section }}</h3> <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
       </li>
       <li>
         <ul class="paginate-tags">
           {{ range .GetTerms "tags" | first 5 }}
           <li>
-              {{ .LinkTitle }}
+            {{ .LinkTitle }}
           </li>
           {{ end }}
         </ul>
@@ -29,7 +39,5 @@
     <p>{{ .Summary }}</p>
   </div>
 </a>
-{{ end }}
-{{ end }}
 {{ end }}
 {{ end }}
