@@ -10,15 +10,21 @@
 {{ $spotlightDateHuman := .Date | time.Format ":date_long" }}
 <div class="spotlight">
   <h1>Recent: {{ .Title }}</h1>
-  <time datetime="{{ $spotlightDateMachine }}">{{ $spotlightDateHuman }}</time><p class="spotlight-section"> &mdash; {{ .Section | title }}</p>
+  <time datetime="{{ $spotlightDateMachine }}">{{ $spotlightDateHuman }}</time>
+  <p class="spotlight-section"> &mdash; {{ .Section | title }}</p>
   {{ .Content | truncate 2000 "..." }}
   {{ if gt (len .Content) 2000 }}
-  <a href="{{ .RelPermalink }}"><div class="listbox">Read more</div></a>
+  <div>
+    <a href="{{ .RelPermalink }}" class="read-more">
+      <div>Read more</div>
+    </a>
+  </div>
   {{ end }}
 </div>
 {{ end }}
 
 {{ range complement (slice $first) $paginate }}
+{{/*  {{ range $paginate }}  */}}
 {{ $section := .Section }}
 {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
 {{ $dateHuman := .Date | time.Format ":date_long" }}

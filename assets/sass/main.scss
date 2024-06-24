@@ -24,6 +24,36 @@ div.spotlight p.spotlight-section {
     color: color.scale($text-color, $lightness: 40%);
 }
 
+div.spotlight div:has(a.read-more) {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+div.spotlight a.read-more {
+    font-weight: bold;
+}
+
+div.spotlight a.read-more div {
+    @include rounded-borders;
+    @include rounded-borders-transition;
+    text-align: center;
+    display: inline-block;
+    margin: 0;
+}
+
+div.spotlight a.read-more:hover div {
+    @include rounded-borders-sel;
+    @include rounded-borders-transition;
+    margin: 0;
+}
+
+div.spotlight a.read-more:active div {
+    @include rounded-borders-click;
+    @include rounded-borders-transition;
+    margin: 0;
+}
+
 img {
     border-radius: $border-radius;
 }
@@ -68,12 +98,16 @@ footer {
 
 a {
     text-decoration: none solid 0pt;
-    color: #00e;
+    color: $link-color;
 }
 
-a[href^=http]::after,
-a[href^=https]::after {
-    content: "↗"
+a[href^=http]:not(:has(div))::after {
+    content: "↗";
+}
+
+a[href^=http] > div::after {
+    content: "↗";
+    margin: 12pt;
 }
 
 .listbox {
