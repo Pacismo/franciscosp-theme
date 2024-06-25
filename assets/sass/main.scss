@@ -53,7 +53,7 @@ img {
 }
 
 body {
-    min-height: calc(100vh - $site-margin * 2);
+    min-height: calc(100vh - $site-margin);
     display: flex;
     flex-direction: column;
 
@@ -89,13 +89,12 @@ footer {
     border-radius: 0 0 $border-radius $border-radius;
     border-top: 1px solid $text-color;
     margin: 0px;
+    padding-top: 6pt;
+    padding-bottom: 6pt;
 }
 
-.footercontent :not(:first-child) {
+.footercontent > * {
     margin-top: 0;
-}
-
-.footercontent :not(:last-child) {
     margin-bottom: 0;
 }
 
