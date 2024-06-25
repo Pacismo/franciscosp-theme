@@ -60,7 +60,7 @@ body {
     background: #ffffff;
     color: $text-color;
     font-family: sans-serif;
-    margin: $site-margin auto $site-margin auto;
+    margin: 0 auto $site-margin auto;
     min-width: $site-width-min;
     max-width: $site-width-max;
     cursor: default;
@@ -68,9 +68,10 @@ body {
 
 header {
     position: sticky;
-    top: $site-margin;
+    top: 0;
+    padding-top: $site-margin;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #fafafa;
 }
 
 main {
@@ -88,6 +89,14 @@ footer {
     border-radius: 0 0 $border-radius $border-radius;
     border-top: 1px solid $text-color;
     margin: 0px;
+}
+
+.footercontent :not(:first-child) {
+    margin-top: 0;
+}
+
+.footercontent :not(:last-child) {
+    margin-bottom: 0;
 }
 
 a {
