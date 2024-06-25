@@ -9,47 +9,10 @@
 {{ $first := index $paginate 0 }}
 
 {{/* With the first page in the list, generate a spotlight */}}
-{{ with $first }}
-{{ $spotlightDateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-{{ $spotlightDateHuman := .Date | time.Format ":date_long" }}
-<div class="spotlight">
-  <h1>Recent: {{ .Title }}</h1>
-  <time datetime="{{ $spotlightDateMachine }}">{{ $spotlightDateHuman }}</time>
-  <p class="spotlight-section"> &mdash; {{ .Section | title }}</p>
-  {{ .Content | truncate 2000 "..." }}
-  {{ if gt (len .Content) 2000 }}
-  <a href="{{ .RelPermalink }}" class="read-more">
-    <div>Read more</div>
-  </a>
-  {{ end }}
-</div>
-{{ end }}
+{{ partial "home/spotlight.html" $first }}
 
 {{/* List all the remaining pages in shortboxes */}}
 {{ range complement (slice $first) $paginate }}
-{{/* {{ range $paginate }} */}}
-{{ $section := .Section }}
-{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-{{ $dateHuman := .Date | time.Format ":date_long" }}
-<a class="paginate" href="{{ .RelPermalink }}">
-  <div class="listbox">
-    <h2>{{ .LinkTitle }}</h2>
-    <ul>
-      <li>
-        <h3>{{ strings.Title $section }}</h3> <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-      </li>
-      <li>
-        <ul class="paginate-tags">
-          {{ range .GetTerms "tags" | first 5 }}
-          <li>
-            {{ .LinkTitle }}
-          </li>
-          {{ end }}
-        </ul>
-      </li>
-    </ul>
-    <p>{{ .Summary }}</p>
-  </div>
-</a>
+{{ partial "home/paginate-listbox.html" . }}
 {{ end }}
 {{ end }}

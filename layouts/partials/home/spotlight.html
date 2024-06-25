@@ -1,0 +1,13 @@
+{{ $spotlightDateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+{{ $spotlightDateHuman := .Date | time.Format ":date_long" }}
+<div class="spotlight">
+    <h1>Recent: {{ .Title }}</h1>
+    <time datetime="{{ $spotlightDateMachine }}">{{ $spotlightDateHuman }}</time>
+    <p class="spotlight-section"> &mdash; {{ .Section | title }}</p>
+    {{ .Content | truncate 2000 "..." }}
+    {{ if gt (len .Content) 2000 }}
+    <a href="{{ .RelPermalink }}" class="read-more">
+        <div>Read more</div>
+    </a>
+    {{ end }}
+</div>
