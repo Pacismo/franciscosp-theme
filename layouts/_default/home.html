@@ -9,7 +9,9 @@
 {{ $first := index $paginate 0 }}
 
 {{/* With the first page in the list, generate a spotlight */}}
-{{ partial "home/spotlight.html" $first }}
+{{ with $first }}
+{{ partial "home/spotlight.html" . }}
+{{ end }}
 
 {{/* List all the remaining pages in shortboxes */}}
 {{ range complement (slice $first) $paginate }}
