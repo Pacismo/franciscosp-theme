@@ -63,3 +63,7 @@
     color: color.scale($text-color, $lightness: 20%);
     font-weight: bold;
 }
+
+:last-child.paginate {
+    margin-bottom: 12pt;
+}

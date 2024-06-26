@@ -103,13 +103,8 @@ a {
     color: $link-color;
 }
 
-a[href^=http]:not(:has(div))::after {
+a[href^=http]::after {
     content: "↗";
-}
-
-a[href^=http] > div::after {
-    content: "↗";
-    margin: 12pt;
 }
 
 .listbox {
@@ -136,11 +131,3 @@ a :where(.listbox) {
     margin-left: 8px;
     margin-right: 8px;
 }
-
-@import "paginate";
-
-@import "menus";
-
-@import "terms";
-
-@import "resume";

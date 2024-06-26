@@ -13,10 +13,15 @@
 
 .resume-entry {
     @include rounded-borders;
-    display: flex;
+    display: grid;
+    grid-template-columns:
+        [image] 15mm
+        [content] auto
+        [arrow-pad] 7.5mm
+        [arrow] 7.5mm;
     align-items: center;
     background: #ddd;
-    height: 50pt;
+    min-height: 15mm;
 }
 
 .resume a {
@@ -43,20 +48,37 @@
     margin-right: 8px;
 }
 
-.resume-entry img.logo {
+.resume-entry > img {
     display: inline;
-    height: 80%;
+    grid-column: image;
+    height: 12mm;
     margin: 4pt;
     padding: 0px;
 }
 
-.resume-entry div {
+.resume-entry > div {
     display: block;
+    grid-column: content;
     flex: auto;
-    margin: 0px 0px 0px 4pt;
+    margin: 4pt;
 }
 
-.resume-entry h3, .resume-entry h4, .resume-entry p {
+.resume-entry:not(:has(img)) > div {
+    grid-column: image / arrow-pad;
+}
+
+:where(a[href^=http]) div.resume-entry::after {
+    grid-column: arrow;
+    content: "↗";
+}
+
+.resume-entry h3,
+.resume-entry h4,
+.resume-entry p {
     margin: 0;
     display: block;
+}
+
+.resume a[href^=http]::after {
+    content: none;
 }
