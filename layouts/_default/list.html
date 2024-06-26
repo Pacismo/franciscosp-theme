@@ -1,19 +1,19 @@
-{{ define "main" }}
+{{- define "main" -}}
 
-{{- $opts := dict "transpiler" "dartsass" }}
-{{- with resources.Get "sass/paginate.scss" | resources.ToCSS $opts | resources.Fingerprint }}
-{{- if eq hugo.Environment "development" }}
+{{- $opts := dict "transpiler" "dartsass" -}}
+{{- with resources.Get "sass/paginate.scss" | resources.ToCSS $opts | resources.Fingerprint -}}
+{{- if eq hugo.Environment "development" -}}
 <link rel="stylesheet" href="{{ .RelPermalink }}">
-{{- else }}
-{{- with.| minify | fingerprint }}
+{{- else -}}
+{{- with . | minify | fingerprint -}}
 <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-{{- end }}
-{{- end }}
-{{- end }}
+{{- end -}}
+{{- end -}}
+{{- end -}}
 
 <h1>{{ .Title }}</h1>
 {{ .Content }}
-{{ range .Pages }}
-{{ partial "list/paginate-listbox.html" . }}
-{{ end }}
-{{ end }}
+{{- range .Pages -}}
+{{- partial "list/paginate-listbox.html" . -}}
+{{- end -}}
+{{- end -}}

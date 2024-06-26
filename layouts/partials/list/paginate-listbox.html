@@ -1,15 +1,15 @@
-{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-{{ $dateHuman := .Date | time.Format ":date_long" }}
+{{- $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" -}}
+{{- $dateHuman := .Date | time.Format ":date_long" -}}
 <a class="paginate" href="{{ .RelPermalink }}">
     <div class="listbox">
         <h2>{{ .LinkTitle }}</h2>
-        <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+        <time datetime="{{ $dateMachine }}">{{- $dateHuman -}}</time>
         <ul class="paginate-tags">
-            {{ range .GetTerms "tags" | first 5 }}
+            {{- range .GetTerms "tags" | first 5 -}}
             <li>
                 {{ .LinkTitle }}
             </li>
-            {{ end }}
+            {{- end -}}
         </ul>
         <p>{{ .Summary }}</p>
     </div>

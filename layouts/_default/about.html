@@ -1,16 +1,12 @@
-{{ define "main" }}
+{{- define "main" -}}
 <h1>{{ .Title }}</h1>
 
 {{ .Content }}
 
-{{ $resume := dict }}
-{{ with resources.Get "resume.toml" }}
-{{ with . | transform.Unmarshal }}
-{{ $resume = .}}
-{{ end }}
-{{ end }}
-{{ if $resume }}
+{{- with resources.Get "resume.toml" -}}
+{{- with . | transform.Unmarshal -}}
 <h1>Resume</h1>
-{{ partial "about/resume.html" $resume }}
-{{ end }}
-{{ end }}
+{{- partial "about/resume.html" . -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}

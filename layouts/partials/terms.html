@@ -5,21 +5,21 @@ For a given taxonomy, renders a list of terms assigned to the page.
 @context {string} taxonomy The taxonomy.
 
 @example: {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-*/}}
+*/ -}}
 
-{{ partial "include-sass.html" "terms.scss" }}
+{{- partial "include-sass.html" "terms.scss" -}}
 
-{{- $page := .page }}
-{{- $taxonomy := .taxonomy }}
+{{- $page := .page -}}
+{{- $taxonomy := .taxonomy -}}
 
-{{- with $page.GetTerms $taxonomy }}
-  {{- $label := (index . 0).Parent.LinkTitle }}
+{{- with $page.GetTerms $taxonomy -}}
+  {{- $label := (index . 0).Parent.LinkTitle -}}
   <div class="tags">
     <div><h2>{{ $label }}:</h2></div>
     <ul>
-      {{- range . }}
+      {{- range . -}}
         <a href="{{ .RelPermalink }}"><li>{{ .LinkTitle }}</li></a>
-      {{- end }}
+      {{- end -}}
     </ul>
   </div>
-{{- end }}
+{{- end -}}

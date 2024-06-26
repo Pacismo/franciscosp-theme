@@ -1,21 +1,21 @@
-{{- $opts := dict "transpiler" "dartsass" }}
-{{- with resources.Get "sass/resume.scss" | resources.ToCSS $opts | resources.Fingerprint }}
-{{- if eq hugo.Environment "development" }}
+{{- $opts := dict "transpiler" "dartsass" -}}
+{{- with resources.Get "sass/resume.scss" | resources.ToCSS $opts | resources.Fingerprint -}}
+{{- if eq hugo.Environment "development" -}}
 <link rel="stylesheet" href="{{ .RelPermalink }}">
-{{- else }}
-{{- with.| minify | fingerprint }}
+{{- else -}}
+{{- with.| minify | fingerprint -}}
 <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-{{- end }}
-{{- end }}
-{{- end }}
+{{- end -}}
+{{- end -}}
+{{- end -}}
 
-{{ $data := . }}
+{{- $data := . -}}
 
-{{ range $table, $entries := $data}}
+{{- range $table, $entries := $data -}}
 <div class="resume">
     <h2>{{ strings.Title $table }}</h2>
-    {{ range $entries }}
-    {{ partial (add "about/sections/" $table ".html") . }}
-    {{ end }}
+    {{- range $entries -}}
+    {{- partial (add "about/sections/" $table ".html") . -}}
+    {{- end -}}
 </div>
-{{ end }}
+{{- end -}}
