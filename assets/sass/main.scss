@@ -26,6 +26,7 @@ div.spotlight p.spotlight-section {
 
 div.spotlight a.read-more {
     font-weight: bold;
+    text-decoration: none;
 }
 
 div.spotlight a.read-more div {
@@ -99,7 +100,6 @@ footer {
 }
 
 a {
-    text-decoration: none solid 0pt;
     color: $link-color;
 }
 
@@ -118,6 +118,7 @@ a[href^=http] > div::after {
 
 a :where(.listbox) {
     margin: 4px;
+    text-decoration: none;
 }
 
 :where(a) .listbox {

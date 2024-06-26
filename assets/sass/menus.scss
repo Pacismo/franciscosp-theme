@@ -11,6 +11,10 @@
     border-bottom: 1px solid $text_color;
 }
 
+.menus a {
+    text-decoration: none;
+}
+
 .menus h1 {
     @include rounded-borders;
     @include rounded-borders-transition;
