@@ -42,15 +42,9 @@
     margin-bottom: 4pt;
 }
 
-.paginate li {
-    display: inline-block;
-    margin: 0px;
-    padding: 0px;
-}
-
 .paginate-tags {
     display: inline-block;
-    margin: 0px;
+    margin: 2pt 0px;
     padding: 0px;
 }
 
@@ -58,7 +52,7 @@
     @include rounded-borders;
     background-color: #00000018;
     display: inline-block;
-    margin: 0px 0px 0px 0px;
+    margin: 0px 2pt 0px 2pt;
     padding: 0px 4px 0px 4px;
     color: color.scale($text-color, $lightness: 20%);
     font-weight: bold;
