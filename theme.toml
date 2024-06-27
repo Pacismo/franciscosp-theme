@@ -7,8 +7,8 @@ description = 'A theme I worked on for my website'
 homepage = 'https://github.com/pacismo/franciscosp-theme'
 
 # Taxonomy terms
-tags = ['blog', 'company']
-features = ['some', 'awesome', 'features']
+tags = ['blog']
+features = []
 
 # If the theme has a single author
 [author]

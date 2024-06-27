@@ -21,3 +21,9 @@ weight = 30
 [module.hugoVersion]
 extended = true
 min = "0.116.0"
+
+[markup.goldmark.extensions.passthrough]
+enable = true
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [['{[', ']}'], ['$$', '$$']]
+inline = [['{(', ')}']]
