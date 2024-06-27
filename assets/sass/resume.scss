@@ -82,3 +82,7 @@
 .resume a[href^=http]::after {
     content: none;
 }
+
+.resume:last-of-type {
+    margin-bottom: 12pt;
+}

@@ -58,6 +58,6 @@
     font-weight: bold;
 }
 
-:last-child.paginate {
+.paginate:last-of-type {
     margin-bottom: 12pt;
 }

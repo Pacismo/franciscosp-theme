@@ -2,9 +2,9 @@
 {{- .Content -}}
 
 {{/* Get the number of pages to show in the home page -- default is 5 */}}
-{{- $count := or site.Params.Home.PageCount 5 -}}
-{{/* Gets the first $count pages, where the page's section is in the `Home.Paginate` list */}}
-{{- $paginate := where site.RegularPages "Page.Section" "in" site.Params.Home.Paginate | first $count -}}
+{{- $count := or site.Params.home.pageCount 5 -}}
+{{/* Gets the first $count pages, where the page's section is in the `home.paginate` list */}}
+{{- $paginate := where site.RegularPages "Page.Section" "in" site.Params.home.paginate | first $count -}}
 {{/* Grab the first post */}}
 {{- $first := index $paginate 0 -}}
 
@@ -16,5 +16,12 @@
 {{/* List all the remaining pages in shortboxes */}}
 {{- range complement (slice $first) $paginate -}}
 {{- partial "home/paginate-listbox.html" . -}}
+{{- end -}}
+
+{{- if site.Params.home.resume -}}
+{{- with resources.Get "resume.toml" -}}
+<h1>Resume</h1>
+{{ transform.Unmarshal . | partial "about/resume.html" }}
+{{- end -}}
 {{- end -}}
 {{- end -}}
