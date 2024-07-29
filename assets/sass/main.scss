@@ -137,3 +137,67 @@ a :where(.listbox) {
     margin-left: auto;
     margin-right: auto;
 }
+
+div.file-input label:has(>img) {
+    display: flex;
+    flex-direction: row;
+}
+
+div.file-input>input[type="file"] {
+    display: none;
+}
+
+div.file-input>label {
+    display: block;
+    cursor: pointer;
+    width: 100%;
+}
+
+div.file-input>label:has(img)>p {
+    display: inline-block;
+    flex: 1;
+    margin: auto 0;
+    word-wrap: normal;
+}
+
+div.file-input>label>img {
+    display: inline-block;
+    grid-column: img;
+    width: 7.5mm;
+    margin: auto;
+    padding: 4px;
+}
+
+button,
+input[type="button"],
+select {
+    padding: 4px;
+}
+button,
+input[type="button"],
+div.file-input,
+select {
+    @include rounded-borders-transition;
+    display: inline-block;
+    border-radius: $border-radius;
+    background-color: $bordered-background;
+    border: none;
+    transition: 250ms ease all;
+    cursor: pointer;
+}
+
+select:focus {
+    transition: none;
+}
+
+button:hover,
+input[type="button"]:hover,
+div.file-input:has(>input[type="file"]):hover, select:not(:focus):hover {
+    background: $bordered-selection;
+}
+
+button:active,
+input[type="button"]:active,
+div.file-input:has(>input[type="file"]):active, select:not(:focus):active {
+    background: $bordered-activated;
+}
