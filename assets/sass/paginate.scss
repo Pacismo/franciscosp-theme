@@ -2,42 +2,68 @@
 @use "sass:color";
 
 .paginate {
-    display: block;
+    width: 100%;
+}
+
+.paginate.multi {
+    display: grid;
+    grid-template-columns: [main] 90% [about] auto;
+}
+
+.paginate a,
+a.paginate {
     color: $text-color;
     text-decoration: none;
 }
 
 .paginate .listbox {
-    padding-left: 6pt;
-    padding-right: 6pt;
+    display: block;
 }
 
-.paginate h2 {
+.paginate.multi .listbox:has(>p.try) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.paginate.multi .listbox p.try {
+    margin: auto;
+}
+
+.paginate.multi a:first-child {
+    grid-template-columns: main;
+}
+
+.paginate.multi a:not(:first-child) {
+    grid-template-columns: about;
+}
+
+.paginate .listbox h2 {
     color: $text-color;
     text-decoration: none;
     margin-bottom: 0;
     margin-top: 4pt;
 }
 
-.paginate h3 {
+.paginate .listbox h3 {
     margin: 0;
     font-size: medium;
     display: inline;
 }
 
-.paginate time {
+.paginate .listbox time {
     font-weight: bold;
     color: color.scale($text-color, $lightness: 20%);
     display: inline;
 }
 
-.paginate ul {
+.paginate .listbox ul {
     list-style-type: none;
     margin: 0pt;
     padding: 0px;
 }
 
-.paginate p {
+.paginate .listbox p {
     margin-top: 0pt;
     margin-bottom: 4pt;
 }
@@ -58,6 +84,6 @@
     font-weight: bold;
 }
 
-.paginate:last-of-type {
+.paginate:last-child {
     margin-bottom: 12pt;
 }

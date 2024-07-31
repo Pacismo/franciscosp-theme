@@ -111,29 +111,33 @@ a[href^=http]::after {
     @include rounded-borders;
 }
 
-a :where(.listbox) {
-    margin: 4px;
+a :has(.listbox),
+a.listbox {
+    color: $text-color;
     text-decoration: none;
 }
 
-:where(a) .listbox {
+:where(a) .listbox,
+a.listbox {
     @include rounded-borders-transition;
 }
 
-:where(a:hover) .listbox {
+:where(a:hover) .listbox,
+a.listbox:hover {
     @include rounded-borders-sel;
     margin-left: 0px;
     margin-right: 0px;
 }
 
-:where(a:active) .listbox {
+:where(a:active) .listbox,
+a.listbox:active {
     @include rounded-borders-click;
     margin-left: 8px;
     margin-right: 8px;
 }
 
 .center {
-    display: block;
+    width: fit-content;
     margin-left: auto;
     margin-right: auto;
 }
@@ -169,10 +173,10 @@ div.file-input>label>img {
 }
 
 button,
-input[type="button"],
-select {
+input[type="button"] {
     padding: 4px;
 }
+
 button,
 input[type="button"],
 div.file-input,
@@ -186,18 +190,14 @@ select {
     cursor: pointer;
 }
 
-select:focus {
-    transition: none;
-}
-
 button:hover,
 input[type="button"]:hover,
-div.file-input:has(>input[type="file"]):hover, select:not(:focus):hover {
+div.file-input:has(>input[type="file"]):hover {
     background: $bordered-selection;
 }
 
 button:active,
 input[type="button"]:active,
-div.file-input:has(>input[type="file"]):active, select:not(:focus):active {
+div.file-input:has(>input[type="file"]):active {
     background: $bordered-activated;
 }

@@ -1,4 +1,14 @@
 {{- define "main" -}}
+
+{{- with resources.Get "sass/paginate.scss" | resources.ToCSS (dict "transpiler" "dartsass") | resources.Fingerprint -}}
+{{- if eq hugo.Environment "development" -}}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{- else -}}
+{{- with . | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{- end -}}
+{{- end -}}
+{{- end -}}
 {{- .Content -}}
 
 {{/* Get the number of pages to show in the home page -- default is 5 */}}

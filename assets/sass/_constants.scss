@@ -19,19 +19,19 @@ $border-radius: 2pt;
 
 @mixin rounded-borders {
     border-radius: $border-radius;
-    padding: 1pt 4pt 1pt 4pt;
+    padding: 1pt 4pt;
     margin: 4px;
     background-color: $bordered-background;
 }
 
 @mixin rounded-borders-sel {
     @include rounded-borders;
-    background: $bordered-selection;
+    background-color: $bordered-selection;
 }
 
 @mixin rounded-borders-click {
     @include rounded-borders;
-    background: $bordered-activated;
+    background-color: $bordered-activated;
 }
 
 @mixin image-zoom-transition {

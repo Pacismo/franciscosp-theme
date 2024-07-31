@@ -1,0 +1,31 @@
+{{- $aboutpage := .GetPage "./about" -}}
+
+{{- if $aboutpage -}}
+{{- $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" -}}
+{{- $dateHuman := .Date | time.Format ":date_long" -}}
+<div class="paginate multi">
+    <a class="listbox" href="{{ $aboutpage.RelPermalink }}">
+        <h2>{{ .LinkTitle }}</h2>
+        <time datetime="{{ $dateMachine }}">{{- $dateHuman -}}</time>
+        <ul class="paginate-tags">
+            {{- range .GetTerms "tags" | first 5 -}}
+            <li>
+                {{ .LinkTitle }}
+            </li>
+            {{- end -}}
+        </ul>
+        {{- with $aboutpage -}}
+        <p>{{ .Summary }}</p>
+        {{- else -}}
+        <p>No summary available</p>
+        {{- end -}}
+    </a>
+    <a class="listbox" href="{{ .RelPermalink }}">
+        <p class="try">
+            <b>Try it out!</b>
+        </p>
+    </a>
+</div>
+{{- else -}}
+{{- partial "list/paginate-listbox.html" . -}}
+{{- end -}}

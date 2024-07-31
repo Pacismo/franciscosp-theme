@@ -13,7 +13,7 @@
 
 <h1>{{ .Title }}</h1>
 {{ .Content }}
-{{- range (.Paginate .Pages).Pages -}}
-{{- partial "list/paginate-listbox.html" . -}}
+{{- range .Pages -}}
+{{- partial "list/paginate-listbox-projects.html" . -}}
 {{- end -}}
 {{- end -}}
