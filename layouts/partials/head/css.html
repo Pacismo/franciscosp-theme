@@ -1,5 +1,6 @@
+{{- range (slice "sass/main.scss" "sass/filebox.scss") -}}
 {{- $opts := dict "transpiler" "dartsass" -}}
-{{- with resources.Get "sass/main.scss" | resources.ToCSS $opts | resources.Fingerprint -}}
+{{- with resources.Get . | resources.ToCSS $opts | resources.Fingerprint -}}
 {{- if eq hugo.Environment "development" -}}
 <link rel="stylesheet" href="{{ .RelPermalink }}">
 {{- else -}}
@@ -9,6 +10,7 @@
   href="{{ .RelPermalink }}"
   integrity="{{ .Data.Integrity }}"
   crossorigin="anonymous">
+{{- end -}}
 {{- end -}}
 {{- end -}}
 {{- end -}}
