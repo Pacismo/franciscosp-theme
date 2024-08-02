@@ -1,0 +1,11 @@
+{{- if .Get "href" -}}
+<a href='{{ .Get "href" }}' {{ if .Get "center" }}class='center'{{ end }}>
+    <div class='listbox'>
+        {{- .InnerDeindent -}}
+    </div>
+</a>
+{{- else -}}
+<div class='listbox {{ if .Get "center" }}center{{ end }}'>
+    {{ .InnerDeindent }}
+</div>
+{{- end -}}

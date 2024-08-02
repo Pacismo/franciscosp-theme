@@ -1,0 +1,14 @@
+{{- with .Page.Resources.Get (or (.Get "path") (.Get 0)) -}}
+{{- if (and (eq .MediaType.Type "application/pdf") ($.Get "preview")) -}}
+<div class="filebox" style='width:{{ or ($.Get "width") "50vw"}}; height:{{ or ($.Get "height") "80vh" }};'>
+    <object data='{{ .Permalink }}' type='{{ .MediaType }}' ></object>
+</div>
+{{- else -}}
+<a class="filebox" href="{{ .RelPermalink }}" download="{{ .Name }}" data-filetype="{{ .MediaType }}">
+    <i class="fa-solid fa-file-arrow-down"></i>
+    <p>{{ .Name }}</p>
+</a>
+{{- end -}}
+{{- else -}}
+<p style="color: red;">Could not get file <span style="color: maroon;">{{ or (.Get "path") (.Get 0) }}</span></p>
+{{- end -}}
