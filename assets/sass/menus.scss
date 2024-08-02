@@ -18,6 +18,7 @@
 .menus h1 {
     @include rounded-borders;
     @include rounded-borders-transition;
+    font-size: 20pt;
     margin-top: 6pt;
     margin-bottom: 0;
     color: $text_color;
@@ -39,7 +40,7 @@
 
 .menus h2 {
     @include rounded-borders;
-    font-size: 10pt;
+    font-size: 8pt;
     margin-top: 0pt;
     margin-bottom: 0pt;
     color: color.scale($text_color, $lightness: 40%);

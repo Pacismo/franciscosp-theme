@@ -1,0 +1,58 @@
+@use 'constants' as *;
+@use 'sass:color';
+
+div.filebox {
+    @include rounded-borders;
+    display: block;
+    padding: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4pt;
+}
+
+div.filebox>object {
+    display: block;
+    border-radius: 4pt;
+    width: 100%;
+    height: 100%;
+}
+
+a.filebox {
+    @include rounded-borders;
+    @include rounded-borders-transition;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    align-items: center;
+    color: $text-color;
+    text-decoration: none;
+}
+
+a.filebox:hover {
+    background-color: $bordered-selection;
+}
+
+a.filebox:active {
+    background-color: $bordered-activated;
+}
+
+a.filebox>i {
+    transition: color 250ms ease;
+    margin: 4px;
+    font-size: 16pt;
+}
+
+a.filebox:hover>i {
+    color: $link-color;
+    margin: 4px;
+    font-size: 16pt;
+}
+
+a.filebox>p {
+    font-weight: bold;
+    margin: 0;
+}

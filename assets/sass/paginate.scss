@@ -2,12 +2,11 @@
 @use "sass:color";
 
 .paginate {
-    width: 100%;
+    max-width: 100%;
 }
 
 .paginate.multi {
-    display: grid;
-    grid-template-columns: [main] 90% [about] auto;
+    display: flex;
 }
 
 .paginate a,
@@ -31,11 +30,11 @@ a.paginate {
 }
 
 .paginate.multi a:first-child {
-    grid-template-columns: main;
+    flex: 1;
 }
 
 .paginate.multi a:not(:first-child) {
-    grid-template-columns: about;
+    width: fit-content;
 }
 
 .paginate .listbox h2 {

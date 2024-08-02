@@ -44,5 +44,13 @@
     font-weight: bold;
     color: color.adjust($text-color, $lightness: 20%);
     padding: 0;
-    margin: 0pt;
+    margin: 0 4px;
+}
+
+.tags ul a:first-child {
+    margin-left: 0;
+}
+
+.tags ul a:last-child {
+    margin-right: 0;
 }
