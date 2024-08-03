@@ -1,6 +1,6 @@
 {{- with .Page.Resources.Get (or (.Get "path") (.Get 0)) -}}
 {{- if (and (eq .MediaType.Type "application/pdf") ($.Get "preview")) -}}
-<div class="filebox" style='width:{{ or ($.Get "width") "50vw"}}; height:{{ or ($.Get "height") "80vh" }};'>
+<div class="filebox" style='width:{{ or ($.Get "width") "75%"}}; height:{{ or ($.Get "height") "75vh" }};'>
     <object data='{{ .Permalink }}' type='{{ .MediaType }}' ></object>
 </div>
 {{- else -}}
