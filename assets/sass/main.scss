@@ -145,6 +145,11 @@ a.listbox:active {
     padding: 4px 2px;
 }
 
+h1>a {
+    text-decoration: none;
+    color: $link-color;
+}
+
 .center {
     width: fit-content;
     margin-left: auto;
@@ -194,7 +199,7 @@ select {
     display: inline-block;
     border-radius: $border-radius;
     background-color: $bordered-background;
-    border: none;
+    border: 1px solid $bordered-border;
     transition: 250ms ease all;
     cursor: pointer;
 }
@@ -203,21 +208,24 @@ button:hover,
 input[type="button"]:hover,
 div.file-input:has(>input[type="file"]):hover {
     background: $bordered-selection;
+    border: 1px solid $bordered-selection-border;
 }
 
 button:active,
 input[type="button"]:active,
 div.file-input:has(>input[type="file"]):active {
     background: $bordered-activated;
+    border: 1px solid $bordered-activated-border;
 }
 
 .monospace {
     font-family: monospace;
 }
 
-div.grid {
-    display: grid;
-    grid-template-columns: repeat(6, max-content);
+div.flex-region {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 4px;
     width: fit-content;
     margin-left: auto;

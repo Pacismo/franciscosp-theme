@@ -9,8 +9,11 @@ $link-color: #00e;
 $site-margin: 4px;
 
 $bordered-background: #eee;
+$bordered-border: color.scale($bordered-background, $lightness: -25%);
 $bordered-selection: #8cf;
+$bordered-selection-border: color.scale($bordered-selection, $lightness: -25%);
 $bordered-activated: color.scale($bordered-selection, $lightness: 50%);
+$bordered-activated-border: color.scale($bordered-activated, $lightness: -25%);
 $border-radius: 2pt;
 
 @mixin rounded-borders-transition {
@@ -25,12 +28,10 @@ $border-radius: 2pt;
 }
 
 @mixin rounded-borders-sel {
-    @include rounded-borders;
     background-color: $bordered-selection;
 }
 
 @mixin rounded-borders-click {
-    @include rounded-borders;
     background-color: $bordered-activated;
 }
 

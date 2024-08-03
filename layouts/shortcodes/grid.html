@@ -1,9 +1,0 @@
-{{- if .Get 0 -}}
-<div class="grid" style="grid-template-columns: repeat({{ .Get 0 }}, max-content);">
-    {{ .Inner }}
-</div>
-{{- else -}}
-<div class="grid">
-    {{ .Inner }}
-</div>
-{{- end -}}
