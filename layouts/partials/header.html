@@ -1,9 +1,16 @@
 {{- partial "include-sass.html" "menus.scss" -}}
 
 <div class="menus">
-  <a href="/">
-    <h1 style="display: inline-block;">{{ site.Title }}</h1>
-  </a>
+  <div class="top-row">
+    <a href="/" class="home">
+      <h1 style="display: inline-block;">{{ site.Title }}</h1>
+    </a>
+    {{- range site.Params.Socials -}}
+    <a class="hide-outlink" href="{{ .link }}">
+      <i class="fa-brands fa-{{ .name | lower }}" title="{{ .name }}"></i>
+    </a>
+    {{- end -}}
+  </div>
   {{- with site.Params.Subtitle -}}
   <h2>{{ . }}</h2>
   {{- end -}}
