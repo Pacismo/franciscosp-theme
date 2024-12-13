@@ -20,7 +20,7 @@
         [arrow-pad] 7.5mm
         [arrow] 7.5mm;
     align-items: center;
-    background: #ddd;
+    background: color.scale($bordered-background, $lightness: 50%);
     min-height: 15mm;
 }
 

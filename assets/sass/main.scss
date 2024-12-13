@@ -2,7 +2,11 @@
 @use 'sass:color';
 
 html {
-    background: #fafafa;
+    background: $html-color;
+}
+
+main h1:first-child {
+    margin-top: 0;
 }
 
 h1:has(+ time) {
@@ -54,25 +58,27 @@ img {
 }
 
 body {
-    min-height: calc(100vh - $site-margin);
+    margin: 0;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 
-    background: #ffffff;
     color: $text-color;
     font-family: sans-serif;
-    margin: 0 auto $site-margin auto;
-    min-width: $site-width-min;
-    max-width: $site-width-max;
+
     cursor: default;
 }
 
 header {
+    @include rounded-borders;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    border-bottom: 1px solid $text_color;
+
     position: sticky;
     top: 0;
-    padding-top: $site-margin;
     width: 100%;
-    background-color: #fafafa;
     z-index: 10;
 }
 
@@ -80,20 +86,27 @@ main {
     flex: 1;
     width: 97.5%;
     margin: 0 auto 0 auto;
+    padding: 6pt;
+
+    min-width: $site-width-min;
+    max-width: $site-width-max;
+
+    background-color: #fff;
 }
 
 footer {
+    @include rounded-borders;
+    border-radius: 0;
+    border-top: 1px solid $text-color;
+    margin: 0px;
+    padding: 6pt 0;
+
     width: 100%;
     font-size: 10pt;
 }
 
 .footercontent {
-    @include rounded-borders;
-    border-radius: 0 0 $border-radius $border-radius;
-    border-top: 1px solid $text-color;
-    margin: 0px;
-    padding-top: 6pt;
-    padding-bottom: 6pt;
+    padding: 0 6pt;
 }
 
 .footercontent>* {
@@ -105,7 +118,7 @@ a {
     color: $link-color;
 }
 
-a[href^=http]::after {
+a[href^=http]:not(.hide-outlink)::after {
     content: "↗";
 }
 

@@ -3,14 +3,18 @@
 $site-width-max: 24cm;
 $site-width-min: 10cm;
 
+$html-color: #fafafa;
+$body-color: #fff;
+$header-color: #ccc;
+
 $text-color: #222;
 $link-color: #00e;
 
 $site-margin: 4px;
 
-$bordered-background: #eee;
+$bordered-background: #ccc;
 $bordered-border: color.scale($bordered-background, $lightness: -25%);
-$bordered-selection: #8cf;
+$bordered-selection: #59f;
 $bordered-selection-border: color.scale($bordered-selection, $lightness: -25%);
 $bordered-activated: color.scale($bordered-selection, $lightness: 50%);
 $bordered-activated-border: color.scale($bordered-activated, $lightness: -25%);
