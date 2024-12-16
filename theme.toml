@@ -2,7 +2,7 @@ name = 'FranciscoSP Theme'
 license = 'MIT'
 licenselink = 'https://github.com/pacismo/franciscosp-theme/LICENSE'
 description = 'A theme I worked on for my website'
-min_version = "0.128.2"
+min_version = "0.139.0"
 
 # The home page of the theme, where the source can be found
 homepage = 'https://github.com/pacismo/franciscosp-theme'
