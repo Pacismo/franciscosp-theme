@@ -1,4 +1,4 @@
-{{- with resources.Get "js/main.mjs" -}}
+{{- with resources.Get "js/main.ts" | js.Build -}}
 {{- $opts := (dict "minify" false "format" "esm") -}}
 {{- if eq hugo.Environment "development" -}}
 {{- with . | js.Build $opts -}}

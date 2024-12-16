@@ -1,6 +1,6 @@
 {{- range (slice "sass/main.scss" "sass/filebox.scss") -}}
 {{- $opts := dict "transpiler" "dartsass" -}}
-{{- with resources.Get . | toCSS $opts -}}
+{{- with resources.Get . | css.Sass $opts -}}
 {{- if eq hugo.Environment "development" -}}
 <link rel="stylesheet" href="{{ .RelPermalink }}">
 {{- else -}}
