@@ -1,5 +1,5 @@
 {{- $opts := dict "transpiler" "dartsass" -}}
-{{- with resources.Get (add "sass/" .) | resources.ToCSS $opts | resources.Fingerprint -}}
+{{- with resources.Get (add "sass/" .) | css.Sass $opts | resources.Fingerprint -}}
 {{- if eq hugo.Environment "development" -}}
 <link rel="stylesheet" href="{{ .RelPermalink }}">
 {{- else -}}

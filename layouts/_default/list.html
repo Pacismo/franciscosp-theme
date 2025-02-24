@@ -1,7 +1,7 @@
 {{- define "main" -}}
 
 {{- $opts := dict "transpiler" "dartsass" -}}
-{{- with resources.Get "sass/paginate.scss" | resources.ToCSS $opts | resources.Fingerprint -}}
+{{- with resources.Get "sass/paginate.scss" | css.Sass $opts | resources.Fingerprint -}}
 {{- if eq hugo.Environment "development" -}}
 <link rel="stylesheet" href="{{ .RelPermalink }}">
 {{- else -}}

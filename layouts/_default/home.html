@@ -1,6 +1,6 @@
 {{- define "main" -}}
 
-{{- with resources.Get "sass/paginate.scss" | resources.ToCSS (dict "transpiler" "dartsass") | resources.Fingerprint -}}
+{{- with resources.Get "sass/paginate.scss" | css.Sass (dict "transpiler" "dartsass") | resources.Fingerprint -}}
 {{- if eq hugo.Environment "development" -}}
 <link rel="stylesheet" href="{{ .RelPermalink }}">
 {{- else -}}
