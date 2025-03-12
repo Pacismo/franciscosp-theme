@@ -3,7 +3,7 @@
 {{- $spotlightDateHuman := .Date | time.Format ":date_long" -}}
 <div class="spotlight">
     <h1>Recent: {{ .Title }}</h1>
-    <time datetime="{{ $spotlightDateMachine }}" style="margin-right: .1ch;">{{ $spotlightDateHuman }}</time>
+    <time datetime="{{ $spotlightDateMachine }}">{{ $spotlightDateHuman }} </time>
     <p class="spotlight-section"> &mdash; {{ .Section | title }}</p>
     {{ .Content | truncate $truncate "..." }}
     <a href="{{ .RelPermalink }}" class="read-more">
