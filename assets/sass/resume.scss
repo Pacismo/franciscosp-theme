@@ -18,7 +18,8 @@
         [image] 15mm
         [content] auto
         [arrow-pad] 7.5mm
-        [arrow] 7.5mm;
+        [arrow] 7.5mm
+        [end];
     align-items: center;
     background: color.scale($bordered-background, $lightness: 50%);
     min-height: 15mm;
@@ -63,7 +64,11 @@
     margin: 4pt;
 }
 
-.resume-entry:not(:has(img)) > div {
+:not(:where(a[href^=http])) div.resume-entry:not(:has(img)) > div {
+    grid-column: image / end;
+}
+
+:where(a[href^=http]) div.resume-entry:not(:has(img)) > div {
     grid-column: image / arrow-pad;
 }
 
