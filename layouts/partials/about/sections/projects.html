@@ -1,4 +1,4 @@
-{{- $dateFormat := "January 01, 2006" -}}
+{{- $dateFormat := "January 2006" -}}
 {{- if .url -}}
 <a href="{{ .url }}">
     {{- end -}}
@@ -6,10 +6,18 @@
         <div>
             <h3>{{ .name }}</h3>
             {{- if .startDate -}}
-            <h4>{{ (time.AsTime .startDate).Format $dateFormat }}</h4>
+            {{- if .endDate -}}
+            <p>{{ (time.AsTime .startDate).Format $dateFormat }} - {{ (time.AsTime .endDate).Format $dateFormat }}</p>
+            {{- else -}}
+            <p>{{ (time.AsTime .startDate).Format $dateFormat }}</p>
             {{- end -}}
-            {{- if .description -}}
-            <p>{{ .description }}</p>
+            {{- end -}}
+            {{- if reflect.IsSlice .description -}}
+            {{- range .description -}}
+            <i>{{.}}</i><br />
+            {{- end -}}
+            {{- else -}}
+            <i>{{ .description }}</i>
             {{- end -}}
         </div>
     </div>
