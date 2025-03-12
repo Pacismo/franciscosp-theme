@@ -72,6 +72,14 @@
     grid-column: image / arrow-pad;
 }
 
+:not(:where(a[href^=http])) div.resume-entry:has(img) > div {
+    grid-column: content / end;
+}
+
+:where(a[href^=http]) div.resume-entry:has(img) > div {
+    grid-column: content / arrow-pad;
+}
+
 :where(a[href^=http]) div.resume-entry::after {
     grid-column: arrow;
     content: "↗";
