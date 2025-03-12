@@ -6,7 +6,7 @@
 <a class="paginate" href="{{ .RelPermalink }}">
     <div class="listbox">
         <h2>{{ .LinkTitle }}</h2>
-        <h3>{{ strings.Title $section }} </h3><time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+        <h3>{{ strings.Title $section }} <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time></h3>
         <ul class="paginate-tags">
             {{- range .GetTerms "tags" | first 5 -}}
             <li>

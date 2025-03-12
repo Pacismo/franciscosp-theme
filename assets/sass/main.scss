@@ -9,7 +9,8 @@ main h1:first-child {
     margin-top: 0;
 }
 
-h1:has(+ time) {
+h1:has(+ time),
+h1:has(+.spotlight-section) {
     margin-bottom: 0px;
 }
 
@@ -26,6 +27,11 @@ div.spotlight p.spotlight-section {
     display: inline;
     font-weight: bold;
     color: color.scale($text-color, $lightness: 40%);
+}
+
+div.spotlight p.spotlight-section time {
+    margin: 0;
+    padding: 0;
 }
 
 div.spotlight a.read-more {
