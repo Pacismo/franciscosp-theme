@@ -14,7 +14,7 @@
             {{- end -}}
             {{- if reflect.IsSlice .description -}}
             {{- range .description -}}
-            <i>{{.}}</i><br />
+            <p><i>{{.}}</i></p>
             {{- end -}}
             {{- else -}}
             <i>{{ .description }}</i>
