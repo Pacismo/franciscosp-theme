@@ -1,4 +1,4 @@
-{{- $dateFormat := "January 01, 2006" -}}
+{{- $dateFormat := "January 2006" -}}
 {{- if .url -}}
 <a href="{{ .url }}">
     {{- end -}}
@@ -15,7 +15,7 @@
             {{- if .endDate -}}
             <p>{{ (time.AsTime .startDate).Format $dateFormat }} - {{ (time.AsTime .endDate).Format $dateFormat }}</p>
             {{- else -}}
-            <p>{{ (time.asTime .startDate).Format $dateFormat }} - Now</p>
+            <p>{{ (time.AsTime .startDate).Format $dateFormat }}</p>
             {{- end -}}
             {{- else -}}
             {{- if .endDate -}}
