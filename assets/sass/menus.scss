@@ -2,6 +2,7 @@
 @use "constants" as *;
 
 .menus {
+    @include site-size-constraint;
     @include rounded-borders;
     border-radius: 0;
 

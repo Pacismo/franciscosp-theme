@@ -42,3 +42,9 @@ $border-radius: 2pt;
 @mixin image-zoom-transition {
     transition: all .5s cubic-bezier(0.86, 0, 0.07, 1);
 }
+
+@mixin site-size-constraint {
+    min-width: $site-width-min;
+    width: 97.5%;
+    max-width: $site-width-max;
+}

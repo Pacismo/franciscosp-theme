@@ -89,14 +89,12 @@ header {
 }
 
 main {
+    @include site-size-constraint;
+
     z-index: 2;
     flex: 1;
     margin: 0 auto 0 auto;
     padding: 6pt;
-
-    min-width: $site-width-min;
-    width: 97.5%;
-    max-width: $site-width-max;
 
     background-color: #fff;
 }
@@ -114,6 +112,8 @@ footer {
 }
 
 .footercontent {
+    @include site-size-constraint;
+    margin: 0 auto;
     padding: 0 6pt;
 }
 

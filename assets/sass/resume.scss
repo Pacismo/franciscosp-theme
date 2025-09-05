@@ -7,19 +7,52 @@
     display: block;
 }
 
+.resume>div {
+    padding: 0;
+}
+
 .resume h2 {
     margin: 4pt;
+}
+
+.resume-languages {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.resume-skills>.resume-entry {
+    margin: 4pt;
+    padding: 0 4pt;
+}
+
+.resume-skills>.resume-entry .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2pt 0 0 0;
+    padding: 0;
+}
+
+.resume-skills>.resume-entry .skills-list>.skills-list-item {
+    display: inline-block;
+    @include rounded-borders;
+    background: color.scale($bordered-background, $lightness: 5%);
+}
+
+.resume-languages>.slim-resume-entry {
+    @include rounded-borders;
+    display: inline-flex;
+    flex: 1 1 auto;
+    flex-direction: row;
+    min-width: min-content;
+    background: color.scale($bordered-background, $lightness: 50%);
+    align-items: center;
 }
 
 .resume-entry {
     @include rounded-borders;
     display: grid;
     grid-template-columns:
-        [image] 15mm
-        [content] auto
-        [arrow-pad] 7.5mm
-        [arrow] 7.5mm
-        [end];
+        [image] 15mm [content] auto [arrow-pad] 7.5mm [arrow] 7.5mm [end];
     align-items: center;
     background: color.scale($bordered-background, $lightness: 50%);
     min-height: 15mm;
@@ -49,7 +82,7 @@
     margin-right: 8px;
 }
 
-.resume-entry > img {
+.resume-entry>img {
     display: inline;
     grid-column: image;
     height: 12mm;
@@ -57,26 +90,27 @@
     padding: 0px;
 }
 
-.resume-entry > div {
+.resume-entry>div,
+.slim-resume-entry>div {
     display: block;
     grid-column: content;
     flex: auto;
     margin: 4pt;
 }
 
-:not(:where(a[href^=http])) div.resume-entry:not(:has(img)) > div {
+:not(:where(a[href^=http])) div.resume-entry:not(:has(img))>div {
     grid-column: image / end;
 }
 
-:where(a[href^=http]) div.resume-entry:not(:has(img)) > div {
+:where(a[href^=http]) div.resume-entry:not(:has(img))>div {
     grid-column: image / arrow-pad;
 }
 
-:not(:where(a[href^=http])) div.resume-entry:has(img) > div {
+:not(:where(a[href^=http])) div.resume-entry:has(img)>div {
     grid-column: content / end;
 }
 
-:where(a[href^=http]) div.resume-entry:has(img) > div {
+:where(a[href^=http]) div.resume-entry:has(img)>div {
     grid-column: content / arrow-pad;
 }
 
@@ -87,7 +121,10 @@
 
 .resume-entry h3,
 .resume-entry h4,
-.resume-entry p {
+.resume-entry p,
+.slim-resume-entry h3,
+.slim-resume-entry h4,
+.slim-resume-entry p {
     margin: 0;
     display: block;
 }
