@@ -1,0 +1,23 @@
+{{- $dateFormat := "January 2006" -}}
+{{- if .url -}}
+<a href="{{ .url }}">
+    {{- end -}}
+    <div class="resume-entry">
+        {{- if .image -}}
+        {{- with resources.Get .image -}}
+        <img src="{{ .RelPermalink }}" class="logo" />
+        {{- end -}}
+        {{- end -}}
+        <div>
+            <h3>{{ .name }}</h3>
+            {{- if .acquired -}}
+            <p>Acquired {{ (time.AsTime .acquired).Format $dateFormat }}</p>
+            {{- end -}}
+            {{- if .description -}}
+            <p><i>{{ .description }}</i></p>
+            {{- end -}}
+        </div>
+    </div>
+    {{- if .url -}}
+</a>
+{{- end -}}

@@ -1,0 +1,10 @@
+<div class="resume-entry">
+    <div>
+        <h3>{{ .category }}</h3>
+        <div class="skills-list">
+            {{- range .entries -}}
+            <div class="skills-list-item"><p>{{ . }}</p></div>
+            {{- end -}}
+        </div>
+    </div>
+</div>
