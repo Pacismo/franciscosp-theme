@@ -15,7 +15,9 @@
             {{- end -}}
         </ul>
         {{- with $aboutpage -}}
-        <p>{{ .Summary }}</p>
+        {{ $cleanSummary := replaceRE "<a .*\">" "" .Summary }}
+        {{ $cleanSummary = replaceRE "</a>" "" $cleanSummary }}
+        <p>{{ $cleanSummary | safeHTML }}</p>
         {{- else -}}
         <p>No summary available</p>
         {{- end -}}

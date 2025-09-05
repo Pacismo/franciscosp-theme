@@ -1,5 +1,7 @@
 {{- $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" -}}
 {{- $dateHuman := .Date | time.Format ":date_long" -}}
+{{ $cleanSummary := replaceRE "<a .*\">" "" .Summary }}
+{{ $cleanSummary = replaceRE "</a>" "" $cleanSummary }}
 <a class="paginate" href="{{ .RelPermalink }}">
     <div class="listbox">
         <h2>{{ .LinkTitle }}</h2>
@@ -11,6 +13,6 @@
             </li>
             {{- end -}}
         </ul>
-        <p>{{ .Summary }}</p>
+        <p>{{ $cleanSummary | safeHTML }}</p>
     </div>
 </a>
